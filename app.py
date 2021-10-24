@@ -16,6 +16,8 @@ def default():
 
 @app.route('/<country>/<type>/')
 def relevantArticle(country, type):
+    if country not in ['GB', 'CA', 'AU', 'NZ', 'US']:
+        return article['WHO'][type]
     return article[country][type]
 
 if __name__ == "__main__":

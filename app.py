@@ -8,6 +8,11 @@ article = { 'UK': { 'general': 'https://www.nhs.uk/conditions/coronavirus-covid-
             'AU': { 'general': 'https://covid19inlanguage.homeaffairs.gov.au/', 'vaccine': 'https://www.health.gov.au/initiatives-and-programs/covid-19-vaccines/covid-19-vaccines', 'masks': 'https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/masks', 'selfisolation': 'https://www.health.gov.au/news/health-alerts/novel-coronavirus-2019-ncov-health-alert/how-to-protect-yourself-and-others-from-coronavirus-covid-19/isolation-for-coronavirus-covid-19'},
             'NZ': { 'general': 'https://covid19.govt.nz/', 'vaccine': 'https://covid19.govt.nz/covid-19-vaccines/', 'masks': 'https://covid19.govt.nz/health-and-wellbeing/protect-yourself-and-others-from-covid-19/wear-a-face-covering/', 'selfisolation': 'https://www.health.govt.nz/our-work/diseases-and-conditions/covid-19-novel-coronavirus/covid-19-health-advice-public/covid-19-self-isolation-managed-isolation-quarantine'}}
 
+@app.route('/')
+def default() {
+    return '<p> Default route </p>'
+}
+
 @app.route('/<country>/<type>/')
 def relevantArticle(country, type):
     return article[country][type]
